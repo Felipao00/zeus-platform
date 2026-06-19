@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0b;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* ========== INPUTS ========== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="date"],
+input[type="search"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  background-color: #1a1a1e;
+  color: #ffffff;
+  border: 1px solid #27272d;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #6b7280;
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.15);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #5c5c66;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+select option {
+  background-color: #1a1a1e;
+  color: #ffffff;
+}
+
+/* Campo de busca com ícone */
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-left: 42px;
+}
+
+.input-with-icon .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5c5c66;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ========== BOTÕES ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Botão Primário (Branco) */
+.btn-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
+  color: #0a0a0b;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #f5f5f5 0%, #d4d4d4 100%);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botão Secundário */
+.btn-secondary {
+  background-color: #1a1a1e;
+  color: #ffffff;
+  border: 1px solid #27272d;
+}
+
+.btn-secondary:hover {
+  background-color: #27272d;
+  border-color: #3f3f47;
+  transform: translateY(-1px);
+}
+
+/* Botão de Perigo */
+.btn-danger {
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.btn-danger:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f47;
+}
+
+/* ========== ANIMAÇÕES ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* ========== CARDS ========== */
+.card {
+  background-color: #111113;
+  border: 1px solid #1a1a1e;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  border-color: #27272d;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== MODAL ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background-color: #111113;
+  border: 1px solid #1a1a1e;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+/* ========== BADGE ========== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ========== TOGGLE SWITCH ========== */
+.toggle {
+  width: 48px;
+  height: 24px;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle.on {
+  background-color: #3b82f6;
+}
+
+.toggle.off {
+  background-color: #374151;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.toggle.on::after {
+  transform: translateX(24px);
+}
+
+.toggle.off::after {
+  transform: translateX(2px);
+}
+
+/* ========== BARRA DE PESQUISA COM ÍCONE ========== */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5c5c66;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.search-wrapper input {
+  padding-left: 42px !important;
+  text-indent: 0 !important;
+}
